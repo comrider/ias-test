@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages ("build"){
         steps {
-            sh 'mvn -f pom.xml clean install package'
+            sh 'mvn -f maven-samples/single-module/pom.xml clean install package'
         }
         post{
             success{
