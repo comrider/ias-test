@@ -1,7 +1,7 @@
 job ('new dsl job'){
     discription ('this is a complete ASL project')
     scm{
-        git ('https://github.com/comrider/ias-test.git',' master')
+        git ('https://github.com/comrider/ias-test.git', master)
     }
     trigger{
         scm ( * * * * *)
