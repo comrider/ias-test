@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    stages ("build"){
+        steps {
+            sh 'mvn -f pom.xml clean install package'
+        }
+        post{
+            success{
+                archiveArtifacts artifacts '**/*.war'
+            }
+        }
+        stage('deploy to dev ENV'){
+            steps{
+                build job: deploy_to_dev_ENV
+
+            }
+        }
+        stage ('deploy to pro ENV'){
+            steps{
+                build job: deploy_to_pro_ENV
+
+            }
+        }
+
+    }
+}
